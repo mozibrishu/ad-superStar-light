@@ -2,36 +2,131 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Star Light</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js" defer></script>
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Star Light</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 300px;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .pp_container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pp_slide_1 .pp_bg {
+      top: 0px;
+      left: 0px;
+    }
+
+    .pp_slide_1 .pp_element_1 {
+      top: 143px;
+      left: 193px;
+    }
+
+    .pp_slide_1 .pp_element_2 {
+
+      top: 157px;
+      left: 49px;
+
+    }
+
+    .pp_slide_2 .pp_bg {
+      top: 0px;
+      left: 0px;
+    }
+
+    .pp_slide_2 .pp_element_1 {
+      top: 143px;
+      left: 193px;
+    }
+
+    .pp_slide_2 .pp_element_2 {
+      top: 0px;
+      left: 0px;
+    }
+
+    .pp_slide_2 .pp_element_3 {
+      top: 22px;
+      left: 197px;
+    }
+
+    .pp_slide_2 .pp_element_4 {
+      top: 129px;
+      left: 143px;
+    }
+
+    .pp_slide_2 .pp_element_5 {
+      top: 219px;
+      left: 6px;
+    }
+
+    .pp_absolute {
+      position: absolute;
+    }
+
+    .pp_hidden {
+      display: none;
+    }
+
+    .pp_zeroOpacity {
+      opacity: 0;
+    }
+  </style>
+
 </head>
 
 <body>
-    <div class="pp_container">
-        <div class="pp_slide_1">
-            <img src="images/1/bglightoff.jpg" alt="" class="pp_bg pp_absolute">
-            <img src="images/1/swoff.png" alt="" class="pp_element_1 pp_absolute">
-            <img src="images/1/text1.png" alt="" class="pp_element_2 pp_absolute">
-        </div>
+  <div class="pp_container">
+    <div class="pp_slide_1">
+      <img src="images/1/bglightoff.jpg" alt="" class="pp_bg pp_absolute">
+      <img src="images/1/swoff.png" alt="" class="pp_element_1 pp_absolute">
+      <img src="images/1/text1.png" alt="" class="pp_element_2 pp_absolute">
+    </div>
+    <div class="pp_slide_2 ">
+      <img src="images/2/bg1lighton.jpg" alt="" class="pp_bg pp_absolute pp_hidden">
+      <img src="images/2/swon.png" alt="" class="pp_element_1 pp_absolute pp_hidden">
+      <img src="images/2/onbulb.png" alt="" class="pp_element_2 pp_absolute pp_hidden">
+      <img src="images/3/copy2.png" alt="" class="pp_element_3 pp_absolute pp_zeroOpacity pp_hidden">
+      <img src="images/3/product.png" alt="" class="pp_element_4 pp_absolute pp_zeroOpacity pp_hidden">
+      <a href="tel://+09610774774">
+        <img src="images/3/contact.png" alt="" class="pp_element_5 pp_zeroOpacity pp_absolute pp_hidden">
+      </a>
+    </div>
 
-        <div class="pp_slide_2 ">
-          <img src="images/2/bg1lighton.jpg" alt="" class="pp_bg pp_absolute pp_hidden">
-          <img src="images/2/swon.png" alt="" class="pp_element_1 pp_absolute pp_hidden">
-          <img src="images/2/onbulb.png" alt="" class="pp_element_2 pp_absolute pp_hidden">
-          <img src="images/3/copy2.png" alt="" class="pp_element_3 pp_absolute pp_zeroOpacity pp_hidden">
-          <img src="images/3/product.png" alt="" class="pp_element_4 pp_absolute pp_zeroOpacity pp_hidden">
-          <a href="tel://+1234567890">
-            <img src="images/3/contact.png" alt="" class="pp_element_5 pp_zeroOpacity pp_absolute pp_hidden">
-          </a>
-          
-      </div>
-    </div>
-    </div>
+  </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script>
+    gsap.to('.pp_slide_1 .pp_element_2', { x: -10, duration: 1, repeat: -1, yoyo: true, ease: 'elastic.out(1, 0.9)' });
+    document.querySelector('.pp_slide_1 .pp_element_1').addEventListener('click', () => {
+      gsap.timeline({ defaults: { ease: "power1.inOut" } })
+        .to('.pp_slide_1 .pp_element_1', { opacity: 0, display: "hidden", duration: 1 }, "<")
+        .to('.pp_slide_1 .pp_element_2', { opacity: 0, display: "hidden", duration: 1 }, "<")
+        .to('.pp_slide_1 .pp_bg', { opacity: 0, display: "hidden", duration: 1 }, "<")
+        .to('.pp_slide_2 .pp_bg', { opacity: 1, display: "block", duration: 1 }, "<")
+        .to('.pp_slide_2 .pp_element_1', { opacity: 1, display: "block", duration: 1 }, "<")
+        .to('.pp_slide_2 .pp_element_2', { opacity: 1, display: "block", duration: 1 }, "<")
+        .to('.pp_slide_2 .pp_element_1', { opacity: 0, display: "hidden", duration: 1 }, ">")
+        .to('.pp_slide_2 .pp_element_2', { opacity: 0, display: "hidden", duration: 1 }, "<")
+        .fromTo('.pp_slide_2 .pp_element_3', { x: 10 }, { x: 0, opacity: 1, display: "block", duration: 1 }, ">-.8")
+        .fromTo('.pp_slide_2 .pp_element_4', { x: -10 }, { x: 0, opacity: 1, display: "block", duration: 1 }, "<.2")
+        .fromTo('.pp_slide_2 .pp_element_5', { opacity: 0, y: 50 }, { y: 0, opacity: 1, display: "block", duration: 1 }, ">-.6")
+        .to('.pp_slide_2 .pp_element_5', { x:10, duration: 1, repeat: -1, yoyo: true, ease: 'elastic.out(1, 0.9)'  }, ">")
+    });
+  </script>
 </body>
 
 </html>

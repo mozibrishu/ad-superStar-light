@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="//ms.purplepatch.online/aygaz/sep-22/mobile/300250v1/style.css" />
+  <link rel="stylesheet" href="//purplepatch.online/assets/ico/favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+    }
+
+    .container {
+      width: 300px;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .slide_1 .bg {
+      top: 0px;
+      left: 0px;
+    }
+
+    .slide_1 .element_1 {
+      top: 0px;
+      left: 0px;
+    }
+
+    .slide_1 .element_2 {
+      top: 0px;
+      left: 0px;
+    }
+
+    .slide_1 .element_3 {
+      top: 0px;
+      left: 0px;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js" defer></script>
+</head>
+
+<body>
+  <div class="container"> <a target="_blank" href="{CLICK_MACRO}">
+      <div class="slide_1"> <img src="//ms.purplepatch.online/aygaz/sep-22/mobile/300250v1/bg.png" alt=""
+          class="bg absolute" /> <img src="//ms.purplepatch.online/aygaz/sep-22/mobile/300250v1/t1.png" alt=""
+          class="element_1 absolute" /> <img src="//ms.purplepatch.online/aygaz/sep-22/mobile/300250v1/t2.png" alt=""
+          class="element_2 absolute" /> <img src="//ms.purplepatch.online/aygaz/sep-22/mobile/300250v1/t3.png" alt=""
+          class="element_3 absolute" /> </div>
+    </a> <a href="tel:09612090909"> <img src="//ms.purplepatch.online/aygaz/sep-22/mobile/300250v1/diplay-banner.png"
+        alt="" class="element_4 absolute" /> </a> </div>
+  <script>gsap.timeline({ defaults: { ease: "power1.inOut" }, repeat: -1, repeatDelay: 2 }).fromTo(".slide_1 .bg", { x: -100 }, { x: 0, duration: 1 }).fromTo(".slide_1 .element_1", { y: -100 }, { y: 0, duration: 0.5 }, ">-.1").fromTo(".slide_1 .element_2", { opacity: 0 }, { opacity: 1, duration: 0.8 }, ">-.1").fromTo(".slide_1 .element_3", { opacity: 0 }, { opacity: 1, duration: 0.8 }, ">-.2").fromTo(".slide_1 .element_4", { opacity: 0 }, { opacity: 1, duration: 0.8 }, ">-.3"); </script>
+</body>
+
+</html>
