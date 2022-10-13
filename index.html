@@ -105,13 +105,19 @@
         <img src="images/3/contact.png" alt="" class="pp_element_5 pp_zeroOpacity pp_absolute pp_hidden">
       </a>
     </div>
+    <audio class="audioDemo" controls preload="none" style="display: none"> 
+      <source src="tik.mp3" type="audio/mpeg">
+      <source src="tik.ogg" type="audio/ogg">
+   </audio>
 
   </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
   <script>
+    var audioDemo = document.querySelector('.audioDemo')
     gsap.to('.pp_slide_1 .pp_element_2', { x: -10, duration: 1, repeat: -1, yoyo: true, ease: 'elastic.out(1, 0.9)' });
     document.querySelector('.pp_slide_1 .pp_element_1').addEventListener('click', () => {
+      audioDemo.play();
       gsap.timeline({ defaults: { ease: "power1.inOut" } })
         .to('.pp_slide_1 .pp_element_1', { opacity: 0, display: "hidden", duration: 1 }, "<")
         .to('.pp_slide_1 .pp_element_2', { opacity: 0, display: "hidden", duration: 1 }, "<")
